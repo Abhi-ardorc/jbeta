@@ -3,6 +3,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const STEPS = [
   {
+    chapter: "The Cover",
+    title: "The promise",
+    caption: "A skyline, a ballfield, three brothers — and a girl named Joanie.",
+    img: "/illustrations/cover.png",
+  },
+  {
     chapter: "Chapter 1",
     title: "Where it begins",
     caption: "A girl, a bat, and a chalk strike zone on a Millstone street.",
@@ -26,17 +32,19 @@ export const ScrollBook = () => {
   const ref = useRef(null);
   const { scrollYProgress: p } = useScroll({ target: ref, offset: ["start start", "end end"] });
 
-  const bookScale = useTransform(p, [0, 0.1], [0.82, 1]);
-  const bookRotate = useTransform(p, [0, 1], [-7, 7]);
-  const bookY = useTransform(p, [0, 1], [70, -70]);
+  const bookScale = useTransform(p, [0, 0.07], [0.8, 1]);
+  const bookRotate = useTransform(p, [0, 1], [-6, 6]);
+  const bookTilt = useTransform(p, [0, 0.25, 0.5, 0.75, 1], [-3, 3, -3, 3, -3]);
+  const bookY = useTransform(p, [0, 1], [80, -80]);
 
-  const o0 = useTransform(p, [0, 0.29, 0.37], [1, 1, 0]);
-  const o1 = useTransform(p, [0.31, 0.39, 0.62, 0.7], [0, 1, 1, 0]);
-  const o2 = useTransform(p, [0.64, 0.72, 1], [0, 1, 1]);
-  const fades = [o0, o1, o2];
+  const o0 = useTransform(p, [0, 0.19, 0.26], [1, 1, 0]);
+  const o1 = useTransform(p, [0.21, 0.28, 0.45, 0.52], [0, 1, 1, 0]);
+  const o2 = useTransform(p, [0.47, 0.54, 0.71, 0.78], [0, 1, 1, 0]);
+  const o3 = useTransform(p, [0.73, 0.8, 1], [0, 1, 1]);
+  const fades = [o0, o1, o2, o3];
 
   return (
-    <section ref={ref} className="relative bg-cream" style={{ height: "320vh" }} data-testid="scroll-book-section">
+    <section ref={ref} className="relative bg-cream" style={{ height: "420vh" }} data-testid="scroll-book-section">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <div className="mx-auto grid w-full max-w-7xl items-center gap-8 px-5 sm:px-8 lg:grid-cols-12 lg:gap-14">
           <div className="relative lg:col-span-5">
@@ -75,14 +83,17 @@ export const ScrollBook = () => {
                 </motion.span>
               ))}
             </div>
-            <motion.div style={{ scale: bookScale, rotate: bookRotate, y: bookY }} className="relative w-60 sm:w-80">
+            <motion.div
+              style={{ scale: bookScale, rotate: bookRotate, rotateY: bookTilt, y: bookY, transformPerspective: 1200 }}
+              className="relative w-60 sm:w-80"
+            >
               <div className="absolute -inset-8 rounded-full bg-copper/25 blur-3xl" aria-hidden="true" />
-              <div className="relative aspect-[798/1084] overflow-hidden rounded-[4px] shadow-[0_40px_80px_-20px_rgba(33,40,58,0.5)]" data-testid="scroll-book-frame">
+              <div className="relative aspect-[798/1084] overflow-hidden rounded-[4px] shadow-[0_40px_80px_-20px_rgba(30,37,54,0.55)]" data-testid="scroll-book-frame">
                 {STEPS.map((s, i) => (
                   <motion.img
                     key={s.chapter}
                     src={s.img}
-                    alt={`${s.chapter} illustration — ${s.title}`}
+                    alt={`${s.chapter} — ${s.title}`}
                     style={{ opacity: fades[i] }}
                     className="absolute inset-0 h-full w-full object-cover"
                   />

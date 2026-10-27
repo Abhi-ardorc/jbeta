@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { MaskedLines, FadeUp } from "@/components/Reveal";
 import { BookCover } from "@/components/BookCover";
@@ -9,12 +9,28 @@ import { MarqueeStrip } from "@/components/MarqueeStrip";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { ScrollBook } from "@/components/ScrollBook";
 import { ParallaxBand } from "@/components/ParallaxBand";
+import { Intro } from "@/components/Intro";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 export default function Home() {
   const [reviews, setReviews] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [showIntro, setShowIntro] = useState(() => {
+    try {
+      return !sessionStorage.getItem("bjb-intro");
+    } catch {
+      return false;
+    }
+  });
+  const D = showIntro ? 2.7 : 0;
+  const finishIntro = () => {
+    try {
+      sessionStorage.setItem("bjb-intro", "1");
+    } catch {}
+    setShowIntro(false);
+  };
+
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const coverY = useTransform(scrollYProgress, [0, 1], [0, 90]);
@@ -27,6 +43,8 @@ export default function Home() {
 
   return (
     <div data-testid="home-page">
+      <AnimatePresence>{showIntro && <Intro onDone={finishIntro} />}</AnimatePresence>
+
       {/* HERO */}
       <section ref={heroRef} className="relative overflow-hidden" data-testid="hero-section">
         <div className="absolute -top-32 right-0 h-[34rem] w-[34rem] rounded-full bg-copper/10 blur-3xl" aria-hidden="true" />
@@ -35,7 +53,7 @@ export default function Home() {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.15, duration: 0.8 }}
+              transition={{ delay: D + 0.15, duration: 0.8 }}
               className="eyebrow"
               data-testid="hero-kicker"
             >
@@ -43,6 +61,7 @@ export default function Home() {
             </motion.p>
             <h1 className="mt-6 font-serif text-[clamp(3.4rem,9vw,7.5rem)] font-medium leading-[0.95] tracking-tight text-espresso">
               <MaskedLines
+                delay={D + 0.15}
                 lines={[
                   <>Believe,</>,
                   <><em className="italic text-copper">Joanie,</em></>,
@@ -53,7 +72,7 @@ export default function Home() {
             <motion.p
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.65, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ delay: D + 0.65, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               className="mt-8 max-w-lg text-lg leading-relaxed text-umber"
               data-testid="hero-tagline"
             >
@@ -63,7 +82,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ delay: D + 0.8, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               className="mt-10 flex flex-wrap gap-4"
             >
               <Link to="/about" className="btn-primary" data-testid="hero-discover-button">
@@ -78,12 +97,12 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 60, rotate: 2 }}
               animate={{ opacity: 1, y: 0, rotate: 0 }}
-              transition={{ delay: 0.35, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ delay: D + 0.35, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
               className="mx-auto max-w-sm"
             >
               <motion.div
                 animate={{ y: [0, -14, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.4 }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: D + 1.4 }}
               >
                 <BookCover />
               </motion.div>

@@ -6,25 +6,25 @@
 
 @layer base {
     :root {
-        --background: 222 47% 97%;
-        --foreground: 224 27% 18%;
-        --card: 0 0% 100%;
-        --card-foreground: 224 27% 18%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 224 27% 18%;
-        --primary: 219 37% 48%;
-        --primary-foreground: 222 47% 97%;
-        --secondary: 220 33% 94%;
-        --secondary-foreground: 224 27% 18%;
-        --muted: 220 33% 94%;
-        --muted-foreground: 223 14% 41%;
-        --accent: 219 37% 48%;
-        --accent-foreground: 222 47% 97%;
+        --background: 218 38% 83%;
+        --foreground: 224 28% 16%;
+        --card: 218 38% 86%;
+        --card-foreground: 224 28% 16%;
+        --popover: 218 38% 90%;
+        --popover-foreground: 224 28% 16%;
+        --primary: 222 43% 38%;
+        --primary-foreground: 220 45% 96%;
+        --secondary: 217 32% 78%;
+        --secondary-foreground: 224 28% 16%;
+        --muted: 217 32% 78%;
+        --muted-foreground: 220 22% 34%;
+        --accent: 222 43% 38%;
+        --accent-foreground: 220 45% 96%;
         --destructive: 0 84.2% 60.2%;
         --destructive-foreground: 0 0% 98%;
-        --border: 217 35% 87%;
-        --input: 217 35% 87%;
-        --ring: 219 37% 48%;
+        --border: 216 30% 72%;
+        --input: 216 30% 72%;
+        --ring: 222 43% 38%;
         --radius: 0.5rem;
     }
 }
@@ -43,8 +43,8 @@
         -moz-osx-font-smoothing: grayscale;
     }
     ::selection {
-        background: #4E6BA8;
-        color: #F4F6FB;
+        background: #37518C;
+        color: #EFF4FB;
     }
 }
 
@@ -53,7 +53,7 @@
         @apply w-full bg-transparent border-0 border-b border-clay focus:border-copper focus:ring-0 outline-none py-3 text-espresso placeholder:text-umber/50 transition-colors duration-300;
     }
     .btn-primary {
-        @apply inline-flex items-center gap-2 rounded-full bg-copper px-7 py-3.5 text-sm font-semibold tracking-wide text-linen transition-[background-color,transform] duration-300 hover:bg-copper-dark hover:scale-[1.03] active:scale-[0.98];
+        @apply inline-flex items-center gap-2 rounded-full bg-copper px-7 py-3.5 text-sm font-semibold tracking-wide text-[#EFF4FB] transition-[background-color,transform] duration-300 hover:bg-copper-dark hover:scale-[1.03] active:scale-[0.98];
     }
     .btn-ghost {
         @apply inline-flex items-center gap-2 rounded-full border border-espresso/25 px-7 py-3.5 text-sm font-semibold tracking-wide text-espresso transition-[border-color,background-color,transform] duration-300 hover:border-espresso hover:bg-espresso hover:text-linen hover:scale-[1.03] active:scale-[0.98];
