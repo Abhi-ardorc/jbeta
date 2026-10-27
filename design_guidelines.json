@@ -1,0 +1,120 @@
+{
+  "theme_and_context": {
+    "context": "Marketing Page / Book Landing Site",
+    "theme_mode": "light",
+    "vibe": "Warm, heartfelt, creative, and professional",
+    "target_audience": "Readers seeking inspiration and personal connection",
+    "emotion": "Organic, Grounded, Inspiring, Intimate"
+  },
+  "color_palette": {
+    "background": {
+      "primary": "#F7F5F0",
+      "secondary": "#EFEBE1",
+      "tertiary": "#E2DAC8"
+    },
+    "text": {
+      "primary": "#1F1A17",
+      "secondary": "#5C5248",
+      "accent": "#C86F43"
+    },
+    "brand_accent": {
+      "main": "#C86F43",
+      "hover": "#A85934",
+      "light": "#F2DFD3"
+    },
+    "surface": {
+      "card": "#FFFFFF",
+      "border": "#DCD3C6"
+    }
+  },
+  "typography": {
+    "font_families": {
+      "headings": "'Cormorant Garamond', serif",
+      "body": "'Manrope', sans-serif"
+    },
+    "scales": {
+      "h1": "text-5xl sm:text-6xl+ tracking-tighter leading-none font-medium",
+      "h2": "text-4xl sm:text-5xl tracking-tight leading-[1.1] font-medium",
+      "h3": "text-2xl sm:text-3xl tracking-tight leading-snug font-normal",
+      "body": "text-lg leading-relaxed text-[#5C5248]",
+      "small": "text-sm tracking-wide uppercase text-[#C86F43]"
+    },
+    "rules": {
+      "headings": "NEVER use bold/black weights for Cormorant Garamond; stick to regular/medium for an editorial, elegant feel. High contrast in sizes.",
+      "body": "Use generous line-height for readability.",
+      "alignment": "Prioritize left-alignment for text blocks. Asymmetry creates an editorial vibe."
+    }
+  },
+  "spacing_and_layout": {
+    "grid_system": "Bento / Editorial Asymmetry. Max-width containers with offset internal grid. Use 12-column grid but span unevenly (e.g., 7 cols for text, 4 cols for images).",
+    "spacing_scale": "Extremely generous. Sections should be padded with py-24 or py-32. Elements gap-12 or gap-16.",
+    "surfaces": "Avoid generic cards. Use flat rectangles or subtle 1px borders (border-[#DCD3C6]) with NO shadows. Let negative space separate elements instead of boxes."
+  },
+  "motion_and_interactions": {
+    "libraries_required": [
+      "framer-motion",
+      "lenis"
+    ],
+    "patterns": {
+      "hero_reveal": "Masked line-by-line text reveal for the tagline. Each line translates up from y: 100% with a slight delay.",
+      "scroll_reveals": "Staggered fade-up and subtle Y-offset on scroll using Framer Motion (whileInView).",
+      "book_hover": "Subtle 3D tilt on hover for the featured book cover, mapped to mouse position (use framer-motion useTransform or similar).",
+      "marquee": "One very slow, continuous editorial marquee (e.g., react-fast-marquee or CSS infinite translate) using the Serif font, displaying praise or book themes.",
+      "smooth_scroll": "Lenis is MANDATORY to give weight and momentum to the page."
+    }
+  },
+  "components": {
+    "buttons": "Pill-shaped or slightly rounded (rounded-full or rounded-md). Solid background in Accent color (#C86F43) with White text. Hover states should scale up slightly and darken.",
+    "navigation": "Sticky top bar, solid background (#F7F5F0) or subtle blur, thin bottom border. Clean, minimal links.",
+    "testimonials": "Editorial layout. Large quote mark, serif font for the quote itself, sans-serif for the attribution.",
+    "forms": "Minimalist form fields. Bottom-border only (underlined input) rather than fully boxed fields, to match the elegant vibe."
+  },
+  "image_urls": [
+    {
+      "category": "hero_or_book_feature",
+      "url": "https://images.unsplash.com/photo-1697029749544-ffa7f15f9dd0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2OTV8MHwxfHNlYXJjaHwxfHxib29rJTIwb24lMjB0YWJsZSUyMHdhcm0lMjBsaWdodHxlbnwwfHx8fDE3OTMxMTk1OTJ8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Warm, atmospheric book setup for the hero or book showcase if actual cover asset is missing."
+    },
+    {
+      "category": "author_portrait",
+      "url": "https://images.unsplash.com/photo-1536766768598-e09213fdcf22?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxwb3J0cmFpdCUyMHdvbWFuJTIwd2FybSUyMGxpZ2h0aW5nfGVufDB8fHx8MTc5MzExOTU5Mnww&ixlib=rb-4.1.0&q=85",
+      "description": "Warm lit, thoughtful portrait for the Author section."
+    },
+    {
+      "category": "blog_post_1",
+      "url": "https://images.unsplash.com/photo-1653569746987-8c1c63b2ffe2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA4Mzl8MHwxfHNlYXJjaHwxfHx3cml0aW5nJTIwam91cm5hbCUyMHdhcm0lMjB2aW50YWdlfGVufDB8fHx8MTc5MzExOTU5Mnww&ixlib=rb-4.1.0&q=85",
+      "description": "Writing journal, vintage warm aesthetic."
+    },
+    {
+      "category": "blog_post_2",
+      "url": "https://images.unsplash.com/photo-1681396059172-7532b1ef8b47?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA4Mzl8MHwxfHNlYXJjaHwyfHx3cml0aW5nJTIwam91cm5hbCUyMHdhcm0lMjB2aW50YWdlfGVufDB8fHx8MTc5MzExOTU5Mnww&ixlib=rb-4.1.0&q=85",
+      "description": "Hand holding open book."
+    },
+    {
+      "category": "blog_post_3",
+      "url": "https://images.unsplash.com/photo-1639527924446-3edc522ae4b0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzF8MHwxfHNlYXJjaHwzfHxyZWFkaW5nJTIwYm9vayUyMHdpbmRvdyUyMHdhcm18ZW58MHx8fHwxNzkzMTE5NTkyfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Cozy reading setup."
+    }
+  ],
+  "accessibility_and_testing": {
+    "contrast": "Ensure Deep Espresso text on Linen backgrounds meets 4.5:1 ratio.",
+    "data_testid": "Apply data-testid to all interactive and structural components (e.g., 'hero-cta-button', 'author-section', 'contact-form-submit')."
+  },
+  "instructions_to_main_agent": {
+    "styling_rules": [
+      "DO NOT use generic Shadcn cards with heavy borders/shadows. Strip Shadcn components to be flat, elegant, and seamless.",
+      "NEVER center everything. Tension and visual interest come from asymmetry and grid offsets.",
+      "NEVER use generic gradients (no purple/blue). Stick to the warm, matte color palette.",
+      "Do NOT use pure #000000 or #FFFFFF. Use the defined palette.",
+      "Do NOT use 'inter' or generic sans for headings. Apply Cormorant Garamond."
+    ],
+    "implementation_details": [
+      "Install and set up '@studio-freight/react-lenis' for smooth scrolling.",
+      "Install and use 'framer-motion' for staggered text reveals (split text by line, overflow hidden on wrapper, translate Y up).",
+      "Install 'react-fast-marquee' for the slow editorial strip.",
+      "Use '.js' / '.jsx' extensions since the project is standard JS (React), not TS.",
+      "Import Google Fonts in index.css: @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600&display=swap');"
+    ],
+    "UNIVERSAL GUIDELINES FOR MAIN AGENT": "You tend to converge toward generic outputs. Avoid this! Create depth, use left-aligned typography, avoid centered templates, and implement staggered entry animations. No placeholders for images—use the provided URLs. DO NOT add `transition: all` in CSS. No AI emojis. Add data-testid to key elements. Do NOT use fully transparent backgrounds behind headers."
+  }
+}
