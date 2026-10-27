@@ -61,6 +61,26 @@
     .eyebrow {
         @apply text-xs font-semibold uppercase tracking-[0.3em] text-copper;
     }
+    .nav-link {
+        position: relative;
+    }
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        height: 1.5px;
+        width: 100%;
+        background: #37518C;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .nav-link:hover::after,
+    .nav-link-active::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
     .grain-overlay {
         pointer-events: none;
         position: fixed;

@@ -9,6 +9,7 @@ import { MarqueeStrip } from "@/components/MarqueeStrip";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { ScrollBook } from "@/components/ScrollBook";
 import { ParallaxBand } from "@/components/ParallaxBand";
+import { ArtGallery } from "@/components/ArtGallery";
 import { Intro } from "@/components/Intro";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
@@ -16,20 +17,9 @@ const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 export default function Home() {
   const [reviews, setReviews] = useState([]);
   const [posts, setPosts] = useState([]);
-  const [showIntro, setShowIntro] = useState(() => {
-    try {
-      return !sessionStorage.getItem("bjb-intro");
-    } catch {
-      return false;
-    }
-  });
-  const D = showIntro ? 2.7 : 0;
-  const finishIntro = () => {
-    try {
-      sessionStorage.setItem("bjb-intro", "1");
-    } catch {}
-    setShowIntro(false);
-  };
+  const [showIntro, setShowIntro] = useState(true);
+  const D = 2.7;
+  const finishIntro = () => setShowIntro(false);
 
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
@@ -48,6 +38,12 @@ export default function Home() {
       {/* HERO */}
       <section ref={heroRef} className="relative overflow-hidden" data-testid="hero-section">
         <div className="absolute -top-32 right-0 h-[34rem] w-[34rem] rounded-full bg-copper/10 blur-3xl" aria-hidden="true" />
+        <img
+          src="/illustrations/skyline.png"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 w-full opacity-30 [mask-image:linear-gradient(to_bottom,transparent,black_55%)]"
+        />
         <div className="mx-auto grid max-w-7xl items-center gap-16 px-5 pb-24 pt-16 sm:px-8 lg:grid-cols-12 lg:pt-24">
           <motion.div style={{ y: textY }} className="lg:col-span-7">
             <motion.p
@@ -195,6 +191,9 @@ export default function Home() {
 
       {/* PARALLAX QUOTE */}
       <ParallaxBand />
+
+      {/* ARTWORK GALLERY */}
+      <ArtGallery />
 
       {/* LATEST POSTS */}
       <section className="bg-cream" data-testid="latest-posts-section">

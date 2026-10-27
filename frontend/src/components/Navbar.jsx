@@ -19,24 +19,26 @@ export const Navbar = () => {
   const { scrollYProgress: progress } = useScroll();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-clay/70 bg-linen/85 backdrop-blur-md" data-testid="navbar">
+    <header className="sticky top-0 z-50 border-b border-clay/60 bg-linen/80 backdrop-blur-md" data-testid="navbar">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-        <Link to="/" className="flex items-center gap-3" data-testid="nav-logo" onClick={() => setOpen(false)}>
-          <LogoMark />
-          <span className="hidden font-serif text-lg leading-none sm:block">
-            Believe <em className="italic text-copper">Joanie</em> Believe
+        <Link to="/" className="group flex items-center gap-3" data-testid="nav-logo" onClick={() => setOpen(false)}>
+          <span className="transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110">
+            <LogoMark />
+          </span>
+          <span className="hidden font-serif text-xl leading-none sm:block">
+            Believe, <em className="italic text-copper">Joanie</em>, Believe
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex" data-testid="nav-links">
+        <nav className="hidden items-center gap-8 lg:flex" data-testid="nav-links">
           {LINKS.map((l) => (
             <NavLink
               key={l.to}
               to={l.to}
               data-testid={`nav-link-${l.label.toLowerCase().replace(/\s/g, "-")}`}
               className={({ isActive }) =>
-                `text-sm font-medium tracking-wide transition-colors duration-300 hover:text-copper ${
-                  isActive ? "text-copper" : "text-umber"
+                `nav-link text-sm font-medium tracking-wide transition-colors duration-300 hover:text-copper ${
+                  isActive ? "nav-link-active text-copper" : "text-umber"
                 }`
               }
             >
@@ -66,7 +68,7 @@ export const Navbar = () => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-clay/70 lg:hidden"
+            className="overflow-hidden border-t border-clay/60 lg:hidden"
             data-testid="nav-mobile-menu"
           >
             <div className="flex flex-col gap-1 px-5 py-4">
