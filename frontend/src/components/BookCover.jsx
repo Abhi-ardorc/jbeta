@@ -39,6 +39,13 @@ export const BookCover = ({ image = "/illustrations/cover.png", className = "" }
         />
         <div className="absolute inset-y-0 left-0 w-2.5 bg-gradient-to-r from-black/35 to-transparent" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-white/15" aria-hidden="true" />
+        <motion.div
+          initial={{ x: "-130%" }}
+          animate={{ x: "240%" }}
+          transition={{ delay: 1.2, duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+          className="pointer-events-none absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/35 to-transparent"
+          aria-hidden="true"
+        />
       </motion.div>
     </div>
   );

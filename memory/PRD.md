@@ -17,6 +17,7 @@ Build a website for the book "Believe Joanie Believe" with: Home, About the Book
 - Re-paletted (2026-07-27, user feedback) to match the real cover: periwinkle/dusty blue primary (#4E6BA8), ice backgrounds, ink navy text; favicon + logo mark recolored.
 - Real book cover (user-uploaded, cropped clean) now used in hero, About CTA, and Purchase page. Author credited as Jay. A Lions across Home, Author, and Press.
 - All 8 core pages built; contact + newsletter + review forms wired to backend; blog & reviews served from MongoDB.
+- Wow-motion pass (2026-07-27): Apple-style pinned scroll showcase (book scrubs through Chapters 1/6/39 with rotation, crossfading text, progress dots), cinematic shine sweep on cover load, floating hero book, parallax quote band (Ch 37 night art), scroll progress bar in navbar.
 - Owner email notification pipeline built (managed Resend); awaits OWNER_EMAIL value (user skipped the secrets card once).
 
 ## Backlog

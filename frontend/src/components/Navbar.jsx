@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { LogoMark } from "@/components/Logo";
 
@@ -16,6 +16,7 @@ const LINKS = [
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { scrollYProgress: progress } = useScroll();
 
   return (
     <header className="sticky top-0 z-50 border-b border-clay/70 bg-linen/85 backdrop-blur-md" data-testid="navbar">
@@ -91,6 +92,11 @@ export const Navbar = () => {
           </motion.nav>
         )}
       </AnimatePresence>
+      <motion.div
+        style={{ scaleX: progress }}
+        className="absolute inset-x-0 bottom-0 h-[2px] origin-left bg-copper"
+        aria-hidden="true"
+      />
     </header>
   );
 };

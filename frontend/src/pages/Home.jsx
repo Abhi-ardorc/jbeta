@@ -7,6 +7,8 @@ import { MaskedLines, FadeUp } from "@/components/Reveal";
 import { BookCover } from "@/components/BookCover";
 import { MarqueeStrip } from "@/components/MarqueeStrip";
 import { NewsletterForm } from "@/components/NewsletterForm";
+import { ScrollBook } from "@/components/ScrollBook";
+import { ParallaxBand } from "@/components/ParallaxBand";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -79,7 +81,12 @@ export default function Home() {
               transition={{ delay: 0.35, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
               className="mx-auto max-w-sm"
             >
-              <BookCover />
+              <motion.div
+                animate={{ y: [0, -14, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.4 }}
+              >
+                <BookCover />
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>
@@ -100,7 +107,7 @@ export default function Home() {
             Millstone open, she becomes the one thing nobody expected: the reason it heals.
           </p>
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-umber">
-            Told in prose and thirty-nine hand-illustrated chapters, <em className="font-serif italic">Believe Joanie Believe</em> is
+            Told in prose and thirty-nine hand-illustrated chapters, <em className="font-serif italic">Believe, Joanie, Believe</em> is
             about grief and grace, brothers and ballfields, and the long, brave practice of believing.
           </p>
           <Link to="/about" className="btn-ghost mt-9" data-testid="story-discover-button">
@@ -118,6 +125,9 @@ export default function Home() {
           </figure>
         </FadeUp>
       </section>
+
+      {/* APPLE-STYLE SCROLL SHOWCASE */}
+      <ScrollBook />
 
       {/* AUTHOR NOTE — dark band */}
       <section className="bg-espresso text-linen" data-testid="author-note-section">
@@ -163,6 +173,9 @@ export default function Home() {
           </Link>
         </FadeUp>
       </section>
+
+      {/* PARALLAX QUOTE */}
+      <ParallaxBand />
 
       {/* LATEST POSTS */}
       <section className="bg-cream" data-testid="latest-posts-section">
